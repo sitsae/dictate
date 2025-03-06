@@ -9,7 +9,7 @@ if len(sys.argv) < 2:
    sys.exit(-1) 
 
 
-def record(filename):
+def record(filename, is_recorded):
     with wave.open(f'./written/{sys.argv[1]}', 'wb') as wf:
         p = pyaudio.PyAudio()
         framerate = int(p.get_default_input_device_info().get("defaultSampleRate"))
@@ -28,9 +28,7 @@ def record(filename):
 
         stream.close()
         p.terminate()
+        is_recorded = True
         print('* done recording')
 
-print('Press enter to start recording')
-keyboard.wait('enter')
-print('Recording...')
-record(sys.argv[1])
+

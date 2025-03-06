@@ -1,0 +1,16 @@
+Prosjekt: Diktere 
+PyAudio, struct, (unpacking audio to int) (?), wave (for å lagre filen etterpå)
+OpenAI har modell for å traskribere norsk. 
+
+
+- lag en lydfil som lagres (pyaudio og wave) og transkriberes hvert minutt og kom med en initiell recap (openai). foreslå videre feilsøking i samtalen.
+ - https://platform.openai.com/docs/guides/speech-to-text
+- systematiser data gjennom promptet: for eksempel i JSON-format, så data kan brukes som innhold på en side.
+- transkriberingen foretas av whisper-1-modellen og postprosesseringen av GPT4
+
+
+
+
+
+
+
