@@ -5,6 +5,10 @@ from record import record
 import keyboard
 import sys
 from process import process
+from dotenv import load_dotenv
+load_dotenv()
+import os
+api_key = os.environ["GLADIA_API_KEY"]
 
 def main():
     is_recorded = False
@@ -13,8 +17,6 @@ def main():
     print('Recording...')
     record(sys.argv[1], is_recorded)
     print('Recording finished')
-
-    api_key="38845894-0330-4d19-9a5b-ad87c6893b7b"
 
     upload_url = "https://api.gladia.io/v2/upload"
     transcribe_url = "https://api.gladia.io/v2/pre-recorded"

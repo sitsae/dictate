@@ -1,12 +1,15 @@
 
-import time
+from dotenv import load_dotenv
 from google import genai
 from google.genai import types
+load_dotenv()
+import os
+api_key = os.environ["GEMINI_API_KEY"]
 
 information = """ the answer to life the universe and everything is 42."""
 
 def process(prompt):
-    client = genai.Client(api_key="AIzaSyA0eV6u7K2zaUmbqvH171XlU9XFuRIQPGg")
+    client = genai.Client(api_key=api_key)
     response = client.models.generate_content(
         model="gemini-2.5-flash", 
         config=types.GenerateContentConfig(
