@@ -11,11 +11,13 @@ import os
 api_key = os.environ["GLADIA_API_KEY"]
 
 def main():
-    is_recorded = False
+    if len(sys.argv) < 2:
+            print("Usage: python transcribe.py <output_filename.wav>")
+            sys.exit(1)
     print('Press enter to start recording')
     keyboard.wait('enter')
     print('Recording...')
-    record(sys.argv[1], is_recorded)
+    record(sys.argv[1])
     print('Recording finished')
 
     upload_url = "https://api.gladia.io/v2/upload"

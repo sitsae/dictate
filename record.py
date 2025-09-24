@@ -3,8 +3,9 @@ import wave
 import sys  
 import keyboard
 
-def record(filename, is_recorded):
-        with wave.open(f'./written/{sys.argv[1]}', 'wb') as wf:
+
+def record(filename):
+        with wave.open(f'./written/{filename}', 'wb') as wf:
             p = pyaudio.PyAudio()
             framerate = int(p.get_default_input_device_info().get("defaultSampleRate"))
             sampwidth = p.get_sample_size(pyaudio.paInt16)
@@ -38,16 +39,7 @@ def record(filename, is_recorded):
 
             stream.close()
             p.terminate()
-            is_recorded = True
+            # is_recorded = True
             print('* done recording')
 
-def main():
-    if len(sys.argv) < 2:
-        print(f'Writes a wave file. Usage: {sys.argv[0]} filename.wav')
-        sys.exit(-1)
-    is_recorded = False
-    record(sys.argv[1], is_recorded)
-    
-if __name__ == '__main__':
-    main()
 
